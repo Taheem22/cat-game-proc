@@ -1,32 +1,54 @@
 cat_attributes = {
-    "intelligence": 0,
-    "energy": 0,
-    "weight": 0,
-    # change the inital values above
+    "intelligence": 50,
+    "energy": 50,
+    "weight": 4,
+    "happiness": 50,
+
 }
 
 print("Welcome to my cat game!")
 
-# Take the user inputs for name and colour:
-name = input("Enter name:")
-# ...
+name = input("Enter name: ")
+colour=input("what is the colour of your cat: ")
 
-# start the while loop
+
 while True:
-    # Finish the string below
-    option = input("What would you like to do? 1. Play with your cat 2. Train your cat 3. show stats!")
+    
+    option = input("What would you like to do? 1. Play with your cat 2. Train your cat 3. show stats!4.feed cat")
 
     if option == '1':
-        # change the cat's attributes here
-        pass
-    elif option == '2':
-        pass
-    # elif ...
-    else:
+        cat_attributes["energy"]-=10
+        cat_attributes["happiness"]+=10
+        cat_attributes["weight"]-=0.2
+
         pass
 
-    # finish off the if statements below
-    if cat_attributes['energy'] < 0:
+    elif option == '2':
+        cat_attributes["intelligence"]+=10
+        cat_attributes["happiness"]+=5
+
         pass
-    # elif ...
+    elif option=="3":
+        print(cat_attributes)
+    elif option==4:
+        cat_attributes["energy"]+=10
+        cat_attributes["weight"]+=0.5
+        pass
+
+
+    if cat_attributes['energy'] < 0:
+        print("well done, youve killed your cat...")
+        break
+
+        
+    elif cat_attributes["happiness"]<20:
+        print("your cats a but depressed, play with it to cheer it up")
     
+    elif cat_attributes["intelligence"]<25:
+        print("teach your cat stuff, its a bit dumb ")
+    
+    elif cat_attributes["weight"]<1:
+        print("well done you killed your cat sicko... ")
+
+    elif cat_attributes["weight"]>8:
+        print("your cat is overweight, it has died")
